@@ -12,3 +12,5 @@ oauth.facebook.AppSecret 7d8a16d5c7cbbfab4b49fd51183c93a0
 oauth.github.Scopes user
 oauth.github.ClientId dbe8c242e3d1099f4558
 oauth.github.ClientSecret 42c8db8d0ca72a0ef202e0c197d1377670c990f4
+
+CefConfig { width:1150, height:1050 }
