@@ -4,7 +4,7 @@ title: Chat Web App
 
 {{ qs.channels ?? 'home' | assignTo: channels }}
 <div id="top">
-    <a href="http://templates.servicestack.net/usecases/web-templates">
+    <a href="/">
         <img src="https://raw.githubusercontent.com/ServiceStack/Assets/master/img/artwork/logo-32-inverted.png" style="height:28px; padding: 10px 0 0 0" />
     </a>
     <div id="social">
@@ -29,7 +29,7 @@ title: Chat Web App
     {{#raw}}
     <div id="examples" data-click="sendCommand">
         <span style="position:absolute; top: 2px; right:7px" data-click="toggleExamples">hide</span>
-        <h4><a href="http://templates.servicestack.net/docs/syntax">Example Templates</a></h4>
+        <h4><a href="https://sharpscript.net/docs/syntax">Example Templates</a></h4>
         <div>{{ 'Cool' | padRight(7,'.') | repeat(3) }}</div>
         <div>{{#each range(17)}}{{it * it}} {{/each}}</div>
         <div>My UserAgent: {{ Request.UserAgent }}</div>
@@ -253,5 +253,9 @@ $txtMsg.keydown(function (e) {
             return false;
         }
     }
+});
+
+$().ready(function() {
+    document.getElementById('bottom').style.position = 'block';
 });
 </script>
