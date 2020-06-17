@@ -1,8 +1,8 @@
 <!--
-title: Chat Web App
+title: Chat Sharp App
 -->
 
-{{ qs.channels ?? 'home' | assignTo: channels }}
+{{ var channels = qs.channels ?? 'home' }}
 <div id="top">
     <a href="/">
         <img src="https://raw.githubusercontent.com/ServiceStack/Assets/master/img/artwork/logo-32-inverted.png" style="height:28px; padding: 10px 0 0 0" />
@@ -10,7 +10,7 @@ title: Chat Web App
     <div id="social">
         <div id="welcome"></div>
         {{#if !isAuthenticated}}
-            {{#each ['twitter', 'facebook', 'github']}}<a href="/auth/{{it}}" class="{{it}}"></a>{{/each}}
+            {{#each ['facebook']}}<a href="/auth/{{it}}" class="{{it}}"></a>{{/each}}
         {{/if}}
     </div>
     <ul id="channels" style="margin: 0 0 0 30px">
@@ -30,8 +30,8 @@ title: Chat Web App
     <div id="examples" data-click="sendCommand">
         <span style="position:absolute; top: 2px; right:7px" data-click="toggleExamples">hide</span>
         <h4><a href="https://sharpscript.net/docs/syntax">Example Templates</a></h4>
-        <div>{{ 'Cool' | padRight(7,'.') | repeat(3) }}</div>
-        <div>{{#each range(17)}}{{it * it}} {{/each}}</div>
+        <div>{{ 'Cool' |> padRight(7,'.') |> repeat(3) }}</div>
+        <div>{{#each range(17)}} {{it*it}} {{/each}}</div>
         <div>My UserAgent: {{ Request.UserAgent }}</div>
         <div>@me What's my IP? {{ Request.RemoteIP }}</div>
         <h4><a href="https://github.com/NetCoreApps/Chat#global-event-handlers">Example Commands</a></h4>
@@ -143,7 +143,7 @@ $(document).bindHandlers({
         $(this).toggle();
     },
     sendCommand: function () {
-        $("#txtMsg").val($(this).html()).focus();
+        $("#txtMsg").val($(this).text()).focus();
     },
     privateMsg: function () {
         $txtMsg.val("@" + this.innerHTML + " ").focus();
