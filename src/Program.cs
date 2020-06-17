@@ -33,7 +33,7 @@ namespace Chat
     {
         public void Configure(IApplicationBuilder app)
         {
-            var appSettings = new TextFileSettings("~/../../apps/chat/app.settings".MapProjectPath());
+            var appSettings = new TextFileSettings("~/../app.settings".MapProjectPath());
             app.UseServiceStack(new AppHost(appSettings));
         }
     }
